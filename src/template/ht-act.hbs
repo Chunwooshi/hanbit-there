@@ -1,0 +1,28 @@
+<li>
+    <div class="ht-act-img" style="background-image: url({{img}})"></div>
+    <div class="ht-act-cont">
+        <div class="ht-act-cont-tt">
+            {{name}}
+        </div>
+        <div class="ht-act-sum">
+            {{summary}}
+        </div>
+        <div class="ht-act-prices">
+            <div class="ht-act-from">
+                from
+            </div>
+            <div class="ht-act-price">
+                ￦{{formet price}} <span class="ht-act-old-price">{{formet orgprice}}</span>
+            </div>
+        </div>
+    </div>
+    <ul class="ht-act-badges">
+        {{#if  badage}}
+            {{#each badage}}
+                <li class="ht-badge-{{this}}">{{upper this}}</li>
+            {{^}}
+                <li class="ht-badge-none">None</li>
+            {{/each}}
+        {{/if}}
+    </ul>
+</li>

@@ -1,0 +1,31 @@
+@import 'common.less';
+
+.ht-sect-info {
+  padding: 50px 0;
+}
+
+.ht-tab-btns {
+  border-bottom: solid 1px @main-color;
+}
+
+.ht-tab-btns > li {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #999999;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ht-tab-btns > li.active {
+  color: #ffffff;
+  background-color: @main-color;
+}
+
+.ht-tab-contents > li {
+  display: none;
+}
+
+.ht-tab-contents > li.active {
+  display: block;
+}

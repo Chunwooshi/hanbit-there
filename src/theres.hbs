@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{> template/title}}</title>
+</head>
+<body>
+{{> template/header search="true" }}
+<section class="ht-sect-there">
+    <div class="dark-layer">
+        <div class="ht-there-n"></div>
+        <div class="ht-there-s"></div>
+    </div>
+</section>
+<section class="ht-sect-info">
+    <div class="ht-section-cont">
+        <div class="ht-tab">
+            <ul class="ht-tab-btns">
+                <li class="active">Info</li>
+                <li>Traffic</li>
+                <li>Map</li>
+            </ul>
+            <ul class="ht-tab-contents">
+                <li class="active ht-tab-area-info">
+                    <ul class="ht-area-info">
+                    </ul>
+                    <div class="ht-area-weather">
+                        <div class="ht-weather-tt">
+                            Current Forecast
+                        </div>
+                        <div class="ht-weather-datetime">
+                        </div>
+                        <div class="ht-weather-forecast">
+                        </div>
+                    </div>
+                </li>
+                <li class="ht-area-tra">
+                    <ul class="ht-tra-list">
+                    </ul>
+                </li>
+                <li class="ht-area-map">
+                    <div id="area-map"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div></div>
+</section>
+<section class="ht-sect-act">
+    <div class=" ht-section-cont">
+        <div class="ht-act-tt">
+            Things to do in
+            <span class="ht-area-n">Guam</span>
+        </div>
+        <ul class="ht-act-li">
+
+        </ul>
+    </div>
+</section>
+{{> template/footer }}
+</body>
+</html>

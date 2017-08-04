@@ -1,0 +1,86 @@
+@import 'common.less';
+
+.hta-there-search-form {
+  position: relative;
+}
+
+.hta-there-search-form > div {
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+#hta-there-group-select > button {
+  display: inline-block;
+  min-width: 100px;
+}
+
+#hta-there-search {
+  display: inline-table;
+  max-width: 300px;
+}
+
+.hta-add-there {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+.hta-there-list {
+  margin-top: 20px;
+}
+
+@hta-there-card-height: 80px;
+
+.hta-there-list > li {
+  display: inline-block;
+  width: 300px;
+  height: @hta-there-card-height;
+  margin: 0px 15px 15px 0px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.hta-there-img {
+  display: inline-block;
+  width: @hta-there-card-height;
+  height: @hta-there-card-height;
+  background-size: cover;
+  background-position: 50% 50%;
+  vertical-align: top;
+}
+
+.hta-there-text {
+  display: inline-block;
+  width: calc(~'100% - '  @hta-there-card-height + 5px);
+  padding: 5px;
+  font-size: 12px;
+  vertical-align: top;
+}
+
+.hta-there-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hta-there-summary {
+  display: -webkit-box;
+  height: 34px;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.hta-there-properties {
+  color: #555;
+  text-align: right;
+}
+
+.hta-there-properties > li {
+  display: inline-block;
+  margin-left: 10px;
+}
