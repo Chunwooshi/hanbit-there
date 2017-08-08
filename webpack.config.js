@@ -17,6 +17,9 @@ const pages = [{
     html: 'sub',
     script: 'sub',
 }, {
+    html: 'activities',
+    script: 'activities'
+}, {
     html: 'admin/index',
     script: 'admin/main'
 }, {

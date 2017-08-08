@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{{> template/title}}</title>
+</head>
+<body>
+{{> template/header search="true" }}
+<section class="ht-section-activity">
+    <div class="dark-layer">
+        <div class="ht-activity-name"></div>
+        <div class="ht-activity-in"></div>
+    </div>
+</section>
+<section class="ht-section-info">
+    <div class="ht-section-cont">
+        <div class="ht-activity-info">
+            <div class="ht-tab">
+                <ul class="ht-tab-btns">
+                    <li class="active">Photo</li>
+                    <li>Video</li>
+                    <li>Map</li>
+                </ul>
+                <ul class="ht-tab-contents">
+                    <li class="active">
+                        <div class="ht-activity-photos ht-carousel">
+                            <ul class="ht-carousel-visible">
+                            </ul>
+                            <div class="ht-carousel-arrow left">
+                                <i class="fa fa-angle-left"></i>
+                            </div>
+                            <div class="ht-carousel-arrow right">
+                                <i class="fa fa-angle-right"></i>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="ht-activity-video">
+                        <div class="ht-activity-video-ready">
+                            준비중 입니다.
+                        </div>
+                    </li>
+                    <li>
+                        <div id="ht-activity-map"></div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ht-activity-info-text">
+                <div class="ht-activity-intro">
+                    <div class="ht-activity-info-title">
+                        소개
+                    </div>
+                    <div class="ht-activity-intro-text">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ht-activity-booking">
+            예약
+        </div>
+    </div>
+</section>
+<section class="ht-section-activities">
+    <div class="ht-section-contents">
+        <div class="ht-activities-title">
+            Nearby Things to do
+        </div>
+        <ul class="ht-activities-list">
+        </ul>
+    </div>
+</section>
+{{> template/footer }}
+</body>
+</html>
