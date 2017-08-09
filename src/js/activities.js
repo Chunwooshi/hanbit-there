@@ -1,5 +1,9 @@
 require('bootstrap');
+require('eonasdan-bootstrap-datetimepicker');
+require('eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');
 require('../less/activities.less');
+
+var moment = require('moment');
 
 var common = require('./common');
 var tab = require('./ht-tab');
@@ -64,7 +68,7 @@ var model = {
             text: '상품 이용 당일 취소나 불참(NO-SHOW)시에도 역시 환불이 불가합니다.'
         }]
     }]
-}
+};
 
 function initActivity(model) {
     $('.ht-activity-name').html(model.name);
@@ -113,11 +117,6 @@ function initActivity(model) {
         console.error(error);
     });
 
-    tab.setCallback(2, function() {
-        $googleMaps.event.trigger(areaMap, 'resize');
-        areaMap.panTo(model.location);
-    });
-
     $('.ht-activity-intro-text').html(model.intro);
 
     var listTemplate = require('../template/activities/info-list.hbs');
@@ -127,6 +126,24 @@ function initActivity(model) {
 
         $('.ht-activity-info-text').append(listHtml);
     }
+
+    tab.setCallback(function(tabId) {
+        if (tabId === 'map') {
+            $googleMaps.event.trigger(areaMap, 'resize');
+            areaMap.panTo(model.location);
+        }
+    });
+
+    $('#ht-datepicker').datetimepicker({
+        inline: true,
+        locale: 'ko',
+        dayViewHeaderFormat: 'YYYY년 MMMM',
+        format: 'YYYYMMDD',
+        useCurrent: false,
+        minDate: moment().add(1, 'days').startOf('day'),
+        maxDate: moment().add(3, 'months').endOf('month'),
+        disabledDates: ['20170815']
+    });
 }
 
 initActivity(model);
