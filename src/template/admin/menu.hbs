@@ -27,8 +27,9 @@
                 액티비티 관리
             </div>
             <ul class="hta-sub-menu">
-                <li>지역그룹관리</li>
-                <li>지역정보관리</li>
+                <li link="activity" {{#if activity}}
+                class="active"
+            {{/if}}>액티비티 관리</li>
             </ul>
         </div>
         <div class="hta-menu-group {{#if group-member}}

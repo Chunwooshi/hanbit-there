@@ -8,10 +8,11 @@ var moment = require('moment');
 var common = require('./common');
 var tab = require('./ht-tab');
 var carousel = require('./ht-carousel');
+var htPrice = require('./ht-price');
 
-var model = {
+/*var model = {
     name: '괌 코코팜 가든 비치',
-    group: {
+    there: {
         nameEn: 'Guam',
         background: '/api/file/there-Guam'
     },
@@ -68,11 +69,11 @@ var model = {
             text: '상품 이용 당일 취소나 불참(NO-SHOW)시에도 역시 환불이 불가합니다.'
         }]
     }]
-};
+};*/
 
 function initActivity(model) {
     $('.ht-activity-name').html(model.name);
-    $('.ht-activity-in').html('in ' + model.group.nameEn);
+    $('.ht-activity-in').html('in ' + model.there.nameEn);
     $('.ht-section-activity').css('background-image',
         'url(' + model.group.background + ')');
 
@@ -141,9 +142,60 @@ function initActivity(model) {
         format: 'YYYYMMDD',
         useCurrent: false,
         minDate: moment().add(1, 'days').startOf('day'),
-        maxDate: moment().add(3, 'months').endOf('month'),
+        maxDate: moment().add(2, 'months').endOf('month'),
         disabledDates: ['20170815']
+    });
+
+    $('#ht-datepicker').on('dp.change', function(event) {
+        $('.ht-booking-datepick-msg').hide();
+        $('.ht-booking-options-box').show();
+    });
+
+    $('#ht-booking-option-1 .ht-options > li').on('click', function() {
+        $('.ht-price-box').removeClass('disabled');
+
+        htPrice.setUpdateListener(function() {
+            var total = 0;
+            var modelIds = ['adult', 'kid', 'baby'];
+
+            modelIds.forEach(function(modelId) {
+                var model = htPrice.getModel(modelId);
+
+                if (!model) {
+                    return;
+                }
+
+                total += model.count * model.price;
+            });
+
+            var point = parseInt(total * 0.02);
+
+            $('.ht-booking-price-total .total').text('₩' + total.toLocaleString());
+            $('.ht-booking-price-point .point').html(point.toLocaleString() + '<span>P</span>');
+        });
+
+        htPrice.setModel('adult', {
+            count: 1,
+            price: 32340
+        });
+        htPrice.setModel('kid', {
+            count: 0,
+            price: 12540
+        });
+        htPrice.setModel('baby', {
+            count: 0,
+            price: 0
+        });
     });
 }
 
-initActivity(model);
+function init(id) {
+    $.ajax({
+        url: '/api/activity/' + id,
+        success: function (result) {
+            initActivity(result);
+        }
+    });
+}
+
+init('guam-cocopalm-garden-beach')
